@@ -23,11 +23,13 @@ client.on('ready', () => {
     console.log('Client is ready!');
 });
 
-// Serve the QR code as an image
 app.get('/qr', (req, res) => {
     if (qrCodeData) {
         qrcode.toDataURL(qrCodeData, (err, src) => {
-            if (err) res.send("Error generating QR code");
+            if (err) {
+                res.status(500).send("Error generating QR code");
+                return;
+            }
             res.send(`<img src="${src}" alt="Scan this QR code with WhatsApp">`);
         });
     } else {
@@ -35,10 +37,9 @@ app.get('/qr', (req, res) => {
     }
 });
 
-// Start the WhatsApp client
 client.initialize();
 
-// Start the Express server
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
+
