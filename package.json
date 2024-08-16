@@ -1,0 +1,17 @@
+{
+  "name": "whatsapp-bot",
+  "version": "1.0.0",
+  "description": "A WhatsApp bot application.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "whatsapp-web.js": "^1.17.0",
+    "qrcode": "^1.5.0",
+    "dotenv": "^16.0.0"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
